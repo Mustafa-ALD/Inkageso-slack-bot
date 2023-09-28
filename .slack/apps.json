@@ -1,0 +1,11 @@
+{
+  "apps": {
+    "TE2UWGDPG": {
+      "app_id": "A05TB4XNJLE",
+      "IsDev": false,
+      "team_domain": "itminds",
+      "team_id": "TE2UWGDPG"
+    }
+  },
+  "default": "itminds"
+}

@@ -1,0 +1,7 @@
+export enum DBSTATUS {
+  CAKE = "CAKE",
+  GIVING = "GIVING",
+  NOCAKE = "NOCAKE",
+  PAID = "PAID",
+  UNDETERMINED = "UNDETERMINED",
+}
