@@ -12,7 +12,7 @@ import WeeklyReminderWorkflow from "./workflows/weekly_reminder_workflow.ts";
  */
 export default Manifest({
   name: "inkageso",
-  description: "A template for building Slack apps with Deno",
+  description: "Kage bot der holder styr på hvem der skylder kage",
   icon: "assets/icon.png",
   workflows: [
     CatchCakeMessagesWorkflow,

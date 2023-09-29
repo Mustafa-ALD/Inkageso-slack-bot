@@ -31,15 +31,12 @@ const newMessageInformation = CatchCakeMessagesWorkflow.addStep(Schema.slack.fun
   message: `<@${CatchCakeMessagesWorkflow.inputs.user}> mentioned cake in <#${CatchCakeMessagesWorkflow.inputs.channel}>\n\nIf they owe cake vote with :pog:\nIf they brought cake vote with :cake:\nIf they DON'T owe cake vote :no_entry:\n\nThis is what they sent:\n>${CatchCakeMessagesWorkflow.inputs.userMessage}`,
 });
 
+
 CatchCakeMessagesWorkflow.addStep(CakeFunctionDefinition, {
   newMessageTs: newMessageInformation.outputs.message_link,
   message: CatchCakeMessagesWorkflow.inputs.userMessage,
   user: CatchCakeMessagesWorkflow.inputs.user,
   timestamp: CatchCakeMessagesWorkflow.inputs.timestamp,
 });
-
-//add function to save to the data store
-//change datastore to include vote count
-//CatchCakeMessagesWorkflow.addStep()
 
 export default CatchCakeMessagesWorkflow;

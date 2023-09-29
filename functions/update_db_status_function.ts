@@ -94,12 +94,9 @@ export default SlackFunction(
             elementFromCakeCriminalsDB.user_id
         )
       ) {
-        if (elementFromCakeCriminalsDB.status == DBSTATUS.GIVING) {
-          return;
-        }
         dbEntiresLeaderboard.push({
           user_id: elementFromCakeCriminalsDB.user_id,
-          cakes_they_owe: 1,
+          cakes_they_owe: 0,
         });
         return;
       }
@@ -119,15 +116,16 @@ export default SlackFunction(
 
       if (elementFromCakeCriminalsDB.status == DBSTATUS.CAKE) {
         dbEntiresLeaderboard[leaderboardEntryIndex].cakes_they_owe += 1;
-      } else if (
-        elementFromCakeCriminalsDB.status == DBSTATUS.GIVING &&
-        dbEntiresLeaderboard[leaderboardEntryIndex].cakes_they_owe > 0
-      ) {
+      } else if (elementFromCakeCriminalsDB.status == DBSTATUS.GIVING) {
         dbEntiresLeaderboard[leaderboardEntryIndex].cakes_they_owe -= 1;
       }
     });
 
     for (const elementFromLeaderboardDB of dbEntiresLeaderboard) {
+      if (elementFromLeaderboardDB.cakes_they_owe < 0) {
+        elementFromLeaderboardDB.cakes_they_owe = 0;
+      }
+
       await client.apps.datastore.put<
         typeof CakeLeaderboardDatastore.definition
       >({
