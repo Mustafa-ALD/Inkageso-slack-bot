@@ -56,6 +56,9 @@ export default SlackFunction(
       "---------------------------------------------------------------------------------\n";
 
     leaderboardDBEntries.forEach((elementFromLeaderboardDB) => {
+      if (elementFromLeaderboardDB.cakes_they_owe == 0) {
+        return;
+      }
       const cakesTheyOweNumberLength =
         elementFromLeaderboardDB.cakes_they_owe.toString().length;
 

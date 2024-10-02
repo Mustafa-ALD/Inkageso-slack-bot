@@ -43,6 +43,9 @@ const catchCakeMessagesTrigger: Trigger<
               {
                 statement: "{{data.text}} CONTAINS cake",
               },
+              {
+                statement: "{{data.text}} CONTAINS inkageso",
+              },
             ],
           },
         ],

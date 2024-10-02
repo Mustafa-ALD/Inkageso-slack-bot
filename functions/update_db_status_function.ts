@@ -98,7 +98,6 @@ export default SlackFunction(
           user_id: elementFromCakeCriminalsDB.user_id,
           cakes_they_owe: 0,
         });
-        return;
       }
 
       const leaderboardEntryIndex = dbEntiresLeaderboard.findIndex(
